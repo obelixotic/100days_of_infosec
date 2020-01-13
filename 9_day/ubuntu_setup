@@ -1,0 +1,83 @@
+from kalki >>>
+
+<<stop unnecessary daemons>>
+systemctl status snapd
+systemctl disable snapd
+systemctl stop snapd
+systemctl status snapd
+systemctl disable apparmour
+systemctl disable apparmor
+systemctl stop apparmor
+
+<<install tree>>
+cd /etc/systemd/system
+apt update
+apt install -y tree
+<<my auto update was on and im guessing thats what was causing the 'lock' issue, just rm the file and continue>>
+rm /var/lib/dpkg/lock-frontend
+apt install -y tree
+rm /var/lib/dpkg/lock
+apt install -y tree
+tree
+
+<<install zsh and git>>
+apt install -y zsh git
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+nano .zshrc
+chsh -s $(which zsh) <<change default shell>>
+
+cd .oh-my-zsh/custom/plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting
+cd
+nano .zshrc
+
+<<cool script too try different themes>>
+cd .oh-my-zsh/tools/
+./theme-chooser.sh
+
+<<adding plugins to zsh>>
+nano ~/.zshrc
+plugins=(
+  git
+  zsh-syntax-highlighting
+  <<add whatever other plugins here later>>
+)
+
+<<installing essential tools>>
+apt install build-essential
+apt install nasm cmake
+
+
+vscode install
+<<downolad .deb file from the website>>
+dpkg -i ~/Downloads/code_1.41.1-1576681836_amd64.deb
+
+
+curl https://get.docker.com/ | sh
+sudo usermod -aG docker tushar
+<<restart computer>>
+cd ~/opt
+sudo git clone https://gitlab.com/b1g_J/dockerfiles.git
+sudo chown tushar:tushar -R dockerfiles
+
+sudo apt install -y docker-compose
+
+nano ~/.zshrc
+xhost + &> /dev/null
+
+
+
+
+
+asm3:
+make
+
+gdb main
+b main for setting breakpoint
+r for run
+si for step inside
+ni for next instruction
+
+
+
