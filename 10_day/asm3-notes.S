@@ -5,6 +5,8 @@ asm3:
 	<+5>:	mov    ah,BYTE PTR [ebp+0x9] 	;move bd into ah
 	<+8>:	shl    ax,0x10					;ah = bd thus, ax = 0xbd00 
 											;bit shift left = 0xbd000000
+											;but ax is only 2 bytes long
+											;thus, ax=eax=0x0 (imp**)
 	<+12>:	sub    al,BYTE PTR [ebp+0xd] 	;0 - 6c = -6c => -108
 											;-108 => 2's complement = ff94
 											;thus, al = 94
