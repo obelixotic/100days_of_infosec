@@ -626,7 +626,8 @@
     <p class="c2"><span class="c16">asm3 - dynamic analysis</span></p>
     <p class="c2"><span class="c1">I re-did the asm3 challenge but this time with dynamic analysis using command line tool </span><span class="c14">gdb</span><span class="c3 c1">&nbsp;</span></p>
     <p class="c2"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 595.50px; height: 669.94px;"><img alt="" src="images/image1day11.png" style="width: 1191.00px; height: 669.94px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
-    <p class="c2 c8"><span class="c3 c1"></span></p>
+    <p><span class="c3 c1">Flag : 0xa4e1</span></p>
+    <br>
     <p class="c2"><span class="c3 c1">I couldn&rsquo;t run the assembly as-is in gdb because .S / .asm files are assembly files that need to be linked to a program like C. Steps : </span></p>
     <p class="c2"><span class="c3 c1">&gt;&gt;&gt; assembly as given by the CTF is not in the standard intel format so first clean the file</span></p>
     <p class="c2"><span class="c1">&gt;&gt;&gt; create an elf (Linux executable) object from the .asm file using a command line tool called </span><span class="c14">nasm</span><span class="c1">&nbsp;<br></span><span class="c10">nasm -o asm3.o -f elf asm3.asm</span></p>
@@ -636,7 +637,7 @@
     <p class="c2"><span class="c10">gdb a.out<br>b main <br>r<br>si</span></p>
     <p class="c7"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 390.67px;"><img alt="" src="images/image2day11.png" style="width: 624.00px; height: 390.67px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
     <p class="c7 c8"><span class="c3 c4"></span></p>
-    <p class="c7 c8"><span class="c3 c4"></span></p>
+    <p class="c7 c8"><span class="c3 c1"></span></p>
     <h3 class="c6" id="h.dardaoz37s2v"><span class="c1 c12"></span></h3>
     <hr>
     <p class="c11"><span class="c3 c1">
