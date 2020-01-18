@@ -665,7 +665,7 @@
 			class="c1">env. </span><span class="c2">There you will see not only PATH but also other env variables like
 			username, lang, shell, etc. Mine looks like this</span></p>
 	<p class="c4"><span
-			class="c0">/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin</span>
+			class="c0">/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:<br>/bin:/usr/games:/usr/local/games:/snap/bin</span>
 	</p>
 	<p class="c3"><span class="c2"></span></p>
 	<p class="c4"><span class="c2">So what is PATH? PATH is all the locations the computer checks when running commands
@@ -693,12 +693,13 @@
 	<p class="c4"><span class="c0">/usr/local/games</span></p>
 	<p class="c4"><span class="c0">/snap/bin</span></p>
 	<p class="c3"><span class="c2"></span></p>
-	<p class="c4"><span class="c10">Now when I was pip installing a package, it was getting saved in the .local/bin PATH
+	<p class="c4"><span class="c10">So when I was pip installing a package, it was getting saved in the .local/bin PATH
 			which is only available to the current shell session. Thats why I could not find my packages the next day.
 		</span><span class="c2">To install globally, I needed to do</span></p>
 	<p class="c3"><span class="c2"></span></p>
 	<p class="c4"><span class="c0">sudo pip install &lt;packagename&gt;</span></p>
 	<p class="c3"><span class="c2"></span></p>
+	<br>
 	<p class="c4"><span class="c10">Now, I don&rsquo;t want to install any pip packages locally ever so an easy, but
 			probably not an elegant, fix is to create an alias for </span><span class="c1">pip</span><span
 			class="c10">&nbsp;in my </span><span class="c1">~/.zshrc</span><span class="c2">&nbsp;file </span></p>
