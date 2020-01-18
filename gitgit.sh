@@ -1,7 +1,7 @@
 #!/bin/bash
 
 git add .
-read -p "Commit description: " desc
-git commit -m "$desc"
+read -p "Commit message: " message
+git commit -m "$message"
 git push origin master
 
