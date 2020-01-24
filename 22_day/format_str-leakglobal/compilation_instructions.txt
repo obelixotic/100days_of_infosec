@@ -1,0 +1,2 @@
+gcc -no-pie leak_global.c -o leak_global
+strip leak_global
