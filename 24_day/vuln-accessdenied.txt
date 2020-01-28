@@ -1,0 +1,1 @@
+chmod 000 vuln-accessdenied.txt
