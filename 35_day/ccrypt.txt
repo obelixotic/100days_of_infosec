@@ -1,0 +1,3 @@
+encrypt>>    ccrypt test.txt
+decrypt>>    ccrypt -d test.txt.cpt
+change_key>> ccrypt -x test.txt.cpt
