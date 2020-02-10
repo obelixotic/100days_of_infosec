@@ -2,4 +2,4 @@ push to server:
 scp filename root@serverip:path/
 
 pull from server:
-scp root@tg1799.itp.io:testscp .
+scp root@serverip:path/to/file .
