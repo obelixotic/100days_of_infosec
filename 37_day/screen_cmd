@@ -1,0 +1,14 @@
+sudo screen /dev/ttyUSB0
+(enter)
+HiZ> 
+? (to show menu/help)
+m (for mode)
+3 (for UART)
+8 (for 57600 baud rate)
+1 
+1
+1
+W
+(1)
+y
+

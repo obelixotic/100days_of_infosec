@@ -1,0 +1,4 @@
+MISO => Tx
+MOSI => Rx
+Gnd => Gnd
+
