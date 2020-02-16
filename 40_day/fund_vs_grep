@@ -1,0 +1,3 @@
+find . "missing*"
+
+grep -rw "missing" *

