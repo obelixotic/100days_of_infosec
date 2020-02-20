@@ -1,6 +1,4 @@
-read(1, var_58, 0x40)
-var_5c = 0
-eax = var_5c
+read(1, var_58, 0x40) var_5c = 0 eax = var_5c 
 for(i=0; i<=0x2f; i++):
 	eax = i
 	eax = 1byte{[eax+0x601080]}
@@ -16,10 +14,10 @@ for(i=0; i<=0x2f; i++):
 print "Correct!" //success condition
 	
 0x601080
-byte	val	not
-1	99	102
-2	93	108
-3	9e	97	
+byte	hex val		not in dec	char value	
+1	99		102		f
+2	93		108		l
+3	9e		97		a
 4	98			
 .
 .
