@@ -1,0 +1,43 @@
+b * 0x00000000004007b4 // at the cmp instruction
+set $eax = 0x30
+ni
+
+and you get "correct!" but this wont work on the server
+so...
+lets analyse...
+
+read (1, rbp-0x50,0x40) reads from fd 1 for 0x40 bytes and stores the value in rbp-0x50 address. on success returns a 0 in rax
+
+so rbp-0x50 has the value i enter
+
+then 0 moved into rbp-0x54
+jmp next instruction
+
+mov that o into eax
+cmp eax with 0x2f => 0x0 - 0x2f
+if that is <=0, jmp left branch
+
+mov 0 into eax
+dereference [rax+0x601080] and mov 1 byte into eax
+rax is 0 so click on 0x 6010180
+99 is hte first byte, mov into eax which al 
+
+99 is 1100011
+not  99 is 0011100
+which is 28
+mov 28 into edx
+
+mov 0 into eax
+mov 1 byte from [rbp-0x50+rax] into eax
+rax = 0 and rbp-0x50 is the buffer
+so 1 byte from what i entered into eax
+basically al
+cmp edx (28) and eax (what i entered)
+if equal, jmp to left branch and increment rbp-0x54 by 1
+
+repeat the whole branch starting at address 0x004007b1
+
+
+
+ok write some psuedo code now to solve this
+
