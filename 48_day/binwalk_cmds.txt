@@ -1,0 +1,4 @@
+binwalk -e Legend.jpeg
+binwalk --dd='.*' Legend.jpeg
+
+https://stackoverflow.com/questions/36530643/use-binwalk-to-extract-all-files
