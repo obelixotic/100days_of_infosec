@@ -1,0 +1,98 @@
+eax = 0
+
+call question1:
+	eax = 0
+	rdx  = stdin //user input
+	rax = var_98
+	esi = 0x80
+	rdi = rax = var_98
+	fgets(var_98, 0x80, stdin) //buffer to store, size to read, stream to read
+	let userinput1 = var_98
+	rdx = userinput1
+	rax = "My name is Sir Lancelot of Camelot."
+	rsi = rdx = userinput1
+	rdi = rax = "My name..."
+	strcmp (rdi, rsi) //my name, userinput1
+	je
+	return value eax = 0
+
+back to main:
+test eax, eax
+since equal, ZF = 1, jne jumps when ZF = 0 ie not equal, duh
+hence jne will trigger the right branch (but it doesnt, why????)
+
+call question2:
+	first call get_number:
+		fgets(var_98,0x80,stdin)
+		strtol(var_98, 0, 0xa)
+		return value in rax
+	var_10 = eax //return1
+	eax = 0
+	second call get_number:
+		fgets(var_98,0x80,stdin)
+		strtol(var_98, 0, 0xa)
+		return value in rax
+	var_c = eax //return2 //should be equal to 0x14
+	eax = var_10
+	func2(var_10,0x0,0x14):
+		c = edi //var_1c
+		b = esi //var_20
+		a = edx //var_24 //var_10
+		eax = var_10
+		eax = eax - 0x0
+		var_10 = eax
+		shr var_10, 0x1f //????
+		eax = eax + var_10
+		sar eax, 0x1 (sar = shr????)
+		var_10 = eax
+		eax = 0x0
+		eax = eax + var_10
+		var_c = eax
+		eax = var_c
+		cmp eax, 0x14
+		jle
+
+		eax = var_c
+		if(eax == 0x14):
+			good
+		
+		eax = var_c
+		so much more func2, ugh
+		
+	//var_c is the second number input'd which should be 0x14 or 20
+	cmp eax, var_c
+	if(var_c == func2(var_10,0x0,0x14)):
+		good
+	else: 
+		bad
+	setne?
+	
+call question3:
+	var_10 = rax
+	eax = 0
+	var_a4 = 1
+	if(var_a4 == 9):
+		good
+	eax = 0
+	get_number()
+	var_a0_1 = eax
+	get_number()
+	var_9c_1 = eax
+	if(var_a0_1 > 0xff): //00ff=255//ja == jg??
+		good
+	if(var_9c_1 > 0xff):
+		good
+	eax = var_9c_1
+	edx = var_a0_1
+	shl rdx, 0x8
+	rax = rax + rdx
+	rax = rax + 0x6020a0 // 0x6020a0 = 0???
+	if(eax == var_a4):
+		good
+	eax++
+	var_a4++
+	rcx = var_10
+	xor?
+	je
+	
+	
