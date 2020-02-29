@@ -1,0 +1,9 @@
+124 gives me |% ...???
+84 and 85 give nothing ...?
+the rest between 0 and 255 segment faults
+
+omg brute forcing was the solution and the solution was 124
+i kept trying to read the binary and understand what the shell code was doing
+lol lol
+
+note to self, always make a flag.txt file when testing locally *facepalm*
