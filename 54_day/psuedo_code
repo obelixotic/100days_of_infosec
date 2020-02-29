@@ -1,0 +1,19 @@
+scanf ("%d %d", var_18, var_14)
+
+if(eax AND eax == 0):
+	jmp left
+else:
+	eax = var_14
+	if(eax AND eax != 0):
+		jmp right(green arrow)
+		ecx = var_14
+		eax = var_18
+		edx = 0
+		esi = ecx
+`		edi = eax
+		
+		
+	else:
+		jmp left
+		print "Values must be non zero!"
+

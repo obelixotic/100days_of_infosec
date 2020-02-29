@@ -1,0 +1,23 @@
+b * 0040090f //je instruction
+set $ZF = 1
+ni
+
+since the flag == 1 je will not be satisfied???
+
+
+
+gdb cant disassemble mian cuase this ELF executable is stripped
+binja can tell you where main is but f you wanted to find out without binja
+objdump -d -M intel recurse.bin | grep main
+
+this will give you the libc main funciton which cannot be stripped
+the first arhgument to libc main function will be the address of the main function
+the first argument is stored in register rdi
+the instruction above the call is
+
+  4006bd:	48 c7 c7 c0 08 40 00 	mov    rdi,0x4008c0
+
+so 0x4008c0 is where the main function starts, wow!
+
+je is same as jz which means that it jmps if zero flag == 1/set/true
+yes ZF = 1 means the test eax, eax result was 0 
