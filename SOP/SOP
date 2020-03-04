@@ -1,0 +1,27 @@
+font :
+Monteserrat font normal
+heading black 18
+heading2 extra bold 14
+sub heading bold 14
+text normal 14
+
+design :
+line after heading
+use shift + enter
+
+html :
+<title> Day n </title>
+
+css :
+body {
+max-width: 600pt
+margin: auto
+}
+
+naming convention :
+google doc 1_100days
+folder 1_day
+html folder 1_blog
+
+rename images :
+image1.png --> image1day1.png
