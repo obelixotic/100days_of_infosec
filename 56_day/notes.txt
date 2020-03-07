@@ -1,0 +1,13 @@
+make a flag.txt file in /
+make a dir notes in the dir where the script lives
+
+open python prompt and unpickle
+
+import pickle
+f = open('payload', 'rb')
+data = f.read()
+print pickle.loads(data)
+
+and the flag.txt file should be copied the notes folder
+
+the ctf challenge is in python3 so need to pickle with that so the web app can unpickle and give me the flag
