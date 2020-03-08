@@ -1,0 +1,14 @@
+give_shell function first instruction is at address 0x0040069d
+I need to overflow the ret add to that address
+
+
+python -c "print'A'*40 + '\x9d\x06@\x00\x00\x00\x00\x00'" | ./boffin => did not work
+
+so it did work cause in gdb we can see that the rip reaches the correct address in the give_shell function
+but the program still crashes, probably something to do with the function prologue and the fact that it is being called from main()
+
+so instead of overflowing the ret addr to the first instruction in the give_shell function, lets try 
+overflowing the ret addr to the first instructtion after the function prologue 
+ie the instruction that starts setting up the parameters for the system call to run execve
+
+yes that worked!!! ok cool!!! :)
