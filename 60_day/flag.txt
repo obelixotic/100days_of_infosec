@@ -1,0 +1,1 @@
+flag{first_day_of_pwn_school_a7f1411f40e1}
