@@ -1,0 +1,5 @@
+chmod +x <file>
+chmod 777 <file>
+
+chmod -x <file>
+chmod 666 <file>
