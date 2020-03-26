@@ -1,0 +1,16 @@
+What I know so far:
+
+the site is vulnerable to php filter base 64
+i have leaked the source code for login, welcome, about pages
+login is interesting, there is some SQL stuff in there
+i also tried leaking a page called 'admin' as a guess which worked
+source code releaved that i can only go to the admin page if sessionId exists and is == 1 (?)
+also theres a directory /uploads/ that only admin has access to (?)
+
+SQLi has not worked - neither manual nor sqlmap - this probs not a SQLi challenge
+
+tried brute forcing with some common passwords - didnt work - dont think thats the way to go anyway
+back to SQL injection (?)
+what else can i look at
+
+
