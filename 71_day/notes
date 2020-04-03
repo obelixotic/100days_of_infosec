@@ -1,0 +1,32 @@
+so the binary (server) works over sockets
+it doesnt use stdin or stdout for its output but socket instead
+so to run locally as well, i need to connect to it over socket
+so run the binary in one terminal window
+in another terminal nc to it on localhost at port 8000
+nc 127.0.0.1 8000 to intereact with the program
+still figuring out how to attach gdb to it
+???
+
+
+but 
+i need to brute force the canary in this challenge
+so maybe i can get away without having to do the above
+so the buffer is 0x30 
+the canary is 0x8
+the old RBP is 0x8 
+then is the return addr which needs to point to give_Shell()
+
+payload A*0x30 + brute_force(canary byte by byte) + A*0x8 + ret_addr(give_shell)
+so lets just try to brute force the canary and see where the program crashes
+maybe i dont need gdb afterall
+
+
+so the stack smash message appears if i send more than 136 bytes
+theres a mov edx, 0x80 in handle maybe thats setting the buffer? 0x80 = 128
+128 + 8 (canary) = 136?
+beyond that the program detects a stack smash?
+actually it probably detects a stack smash cause im overwriting the canary
+yes  that makes more sense
+
+the paddding actually ended up beig 136, i found out by hit and trial
+why though?
