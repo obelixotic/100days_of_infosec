@@ -1,0 +1,15 @@
+checksec git_got_good 
+[*] '/home/tushar/girgit/intro_to_Offensive_Security/9_pwn/git_got_good/git_got_good'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+
+#to see the global offset table
+objdump --dynamic-reloc ./git_got_good 
+
+
+ROPgadget --binary git_got_good > ROP_gadget
+less ROP_gadget| grep "pop rdi"
+0x0000000000400893 : pop rdi ; ret	
