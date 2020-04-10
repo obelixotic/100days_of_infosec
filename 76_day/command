@@ -1,0 +1,5 @@
+p = process('<path_to_binary>', env = {'LD_LIBRARY_PATH' : '<path_to_libc>'})
+
+helpful link:
+https://www.reddit.com/r/securityCTF/comments/70svdk/pwn_linking_the_challengeprovided_libcso_instead/
+
