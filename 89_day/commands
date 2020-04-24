@@ -1,0 +1,8 @@
+1. cat access.log | cut -d " " -f 1 | sort | uniq | wc -l
+2. cat access.log | cut -d '"' -f 3 | grep 200 | wc -l
+3. cat access.log | cut -d '"' -f 3 | grep 400 | wc -l
+4. cat access.log| grep 'Ring' | cut -d " " -f1 | sort | uniq   
+5. cat access.log | grep "Googlebot"
+6. cat access.log| grep 'bash' | cut -d " " -f1 | sort | uniq
+7. cat access.log| grep 'Firefox'
+8-10. awk -F " " '{print $6}' access.log| sort | uniq -c 
