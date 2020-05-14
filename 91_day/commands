@@ -1,0 +1,4 @@
+nmap -Pn ports.cityinthe.cloud
+nmap -Pn -sU ports.cityinthe.cloud
+nmap -Pn -p 16080 -Sv ports.cityinthe.cloud
+
