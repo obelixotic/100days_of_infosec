@@ -1,0 +1,13 @@
+echo "hey" > source.file
+ln source.file hardlink.file
+ln -s source.file symlink.file
+cat symlink.file
+cat hardlink.file
+
+ls -lia
+#notice permissions and inode values for the files
+
+echo "whats up" >> source.file
+cat symlink.file
+cat hardlink.file
+
