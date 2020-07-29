@@ -1,0 +1,11 @@
+grep -rw “ajbqf” *
+^Z
+grep -rw “126t3” *
+^Z
+bg %2
+fg %1
+kill %1
+
+wait
+jobs
+ps -a -u kalki -x -e

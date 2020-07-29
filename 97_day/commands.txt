@@ -1,0 +1,10 @@
+FRUIT=(apple orange “passion fruit” peach)
+echo $FRUIT
+FRUIT[0]=grape
+echo $FRUIT
+echo ${FRUIT[2]}
+echo ${FRUIT[*]}
+
+NAME=kalki
+export NAME
+env | grep NAME
