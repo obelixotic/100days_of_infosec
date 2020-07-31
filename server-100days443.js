@@ -13,8 +13,8 @@ server.use(express.static('public'));
 console.log("listening at port " + port);
 
 const httpsServer = https.createServer(credentials, server);
-httpsServer.listen(443, () => {
-    console.log('HTTPS Server running on port 443');
+httpsServer.listen(port, () => {
+    console.log('HTTPS Server running on port '+port);
 });
 
 server.get('/100days', function(req, res) {
