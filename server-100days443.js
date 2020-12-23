@@ -20,6 +20,6 @@ httpsServer.listen(port, () => {
 
 server.get("/100days", function(req, res) {
     res.sendFile("index.html", {
-        root: path.join(__dirname, "/public/100days"),
+        root: path.join(__dirname, "../public/100days"),
     });
 });
